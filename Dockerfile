@@ -30,4 +30,4 @@ COPY ./conf/bblayers.conf /yocto/build/conf/
 COPY ./conf/local.conf /yocto/build/conf/
 
 # Build the image (change very frequently)
-CMD source oe-init-build-env && bitbake core-image-minimal
+CMD bash -c 'source oe-init-build-env && bitbake core-image-full-cmdline'
