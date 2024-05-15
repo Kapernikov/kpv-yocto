@@ -26,8 +26,8 @@ COPY ./layers /yocto/layers
 RUN bash -c '. oe-init-build-env && bitbake core-image-full-cmdline --runall=fetch'
 
 # Add configuration files
-COPY ./conf/bblayers.conf /yocto/build/conf/
-COPY ./conf/local.conf /yocto/build/conf/
+COPY ./conf/bblayers.conf /yocto/poky/build/conf/
+COPY ./conf/local.conf /yocto/poky/build/conf/
 
 # Build the image (change very frequently)
 CMD bash -c 'sudo chown -R yocto:yocto /yocto/poky/build/tmp/deploy && source oe-init-build-env && bitbake core-image-full-cmdline'
