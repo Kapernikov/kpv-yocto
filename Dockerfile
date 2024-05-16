@@ -30,4 +30,4 @@ COPY ./conf/bblayers.conf /yocto/poky/build/conf/
 COPY ./conf/local.conf /yocto/poky/build/conf/
 
 # Build the image (change very frequently)
-CMD bash -c 'sudo chown -R yocto:yocto /yocto/poky/build/tmp/deploy && source oe-init-build-env && bitbake core-image-full-cmdline'
+CMD bash -c 'sudo chown -R yocto:yocto /yocto/poky/build/tmp && source oe-init-build-env && bitbake core-image-full-cmdline'
