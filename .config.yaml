@@ -1,0 +1,24 @@
+header:
+    version: 11
+distro: kapernikov
+build_system: oe
+machine: qemux86-64
+target: core-image-full-cmdline
+
+repos:
+  poky:
+    url: "https://git.yoctoproject.org/git/poky"
+    branch: "scarthgap"
+    layers:
+      meta:
+      meta-poky:
+      meta-yocto-bsp:
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded"
+    branch: "scarthgap"
+    layers:
+      meta-networking:
+      meta-python:
+      meta-oe:
+  meta-kapernikov:
+    path: "./meta-kapernikov/"
