@@ -1,11 +1,17 @@
-# building
+# Yocto experiment
+
+* [ ] poky-based distro with apt
+* [ ] podman
+* [ ] swupdate
+
+## building
 
 ```shell
 pip install kas
 kas build
 ```
 
-# running in qemu
+## running in qemu
 
 ```shell
 kas shell
