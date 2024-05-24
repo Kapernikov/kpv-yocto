@@ -2,3 +2,6 @@
 build
 poky
 meta-openembedded
+.vscode
+meta-security
+meta-virtualization

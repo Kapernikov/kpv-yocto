@@ -20,5 +20,16 @@ repos:
       meta-networking:
       meta-python:
       meta-oe:
+      meta-filesystems:
+  meta-virtualization:
+    url: "https://git.yoctoproject.org/git/meta-virtualization"
+    branch: "scarthgap"
+    layers:
+      ../meta-virtualization:
+  meta-security:
+    url: "https://git.yoctoproject.org/git/meta-security"
+    branch: "scarthgap"
+    layers:
+      ../meta-security:
   meta-kapernikov:
     path: "./meta-kapernikov/"
