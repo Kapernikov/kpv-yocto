@@ -4,6 +4,10 @@ distro: kapernikov
 build_system: oe
 machine: qemux86-64
 target: image-kapernikov
+#local_conf_header:
+#  meta-custom: |
+#    BB_ALLOWED_NETWORKS="github.com"
+
 
 repos:
   poky:
