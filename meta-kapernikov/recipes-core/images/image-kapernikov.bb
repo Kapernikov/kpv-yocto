@@ -9,3 +9,5 @@ IMAGE_INSTALL = "\
     "
 
 inherit core-image
+
+WKS_FILE = "kpv.wks"
