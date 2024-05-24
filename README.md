@@ -1,7 +1,7 @@
 # Yocto experiment
 
-* [ ] poky-based distro with apt
-* [ ] podman
+* [x] poky-based distro with apt
+* [x] podman
 * [ ] swupdate
 
 ## building
