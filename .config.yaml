@@ -3,7 +3,7 @@ header:
 distro: kapernikov
 build_system: oe
 machine: qemux86-64
-target: core-image-full-cmdline
+target: image-kapernikov
 
 repos:
   poky:
@@ -31,5 +31,10 @@ repos:
     branch: "scarthgap"
     layers:
       ../meta-security:
+  meta-swupdate:
+    url: "https://github.com/sbabic/meta-swupdate"
+    branch: "scarthgap"
+    layers:
+      ../meta-swupdate:
   meta-kapernikov:
     path: "./meta-kapernikov/"

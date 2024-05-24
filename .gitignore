@@ -5,3 +5,4 @@ meta-openembedded
 .vscode
 meta-security
 meta-virtualization
+meta-swupdate
