@@ -2,6 +2,7 @@ SUMMARY = "Kapernikov image"
 
 IMAGE_FEATURES += "splash ssh-server-openssh read-only-rootfs overlayfs-etc"
 
+DEPENDS:append = " grub-native"
 OVERLAYFS_ETC_MOUNT_POINT = "/data"
 OVERLAYFS_ETC_DEVICE = "/dev/disk/by-label/data"
 OVERLAYFS_ETC_FSTYPE ?= "btrfs"
@@ -12,7 +13,7 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 
-MYCOUNTER = "9"
+MYCOUNTER = "10"
 
 inherit core-image
 
@@ -29,7 +30,22 @@ do_reconfigure_podman() {
 }
 
 
+GRUB_ENV ?= "${S}/grub.env"
+
+
+do_put_grub_env() {
+    grub-editenv ${GRUB_ENV} create
+    grub-editenv ${GRUB_ENV} set copy=1
+}
+
+FILES_${PN} = " \
+    /boot/EFI/BOOT/grub.env \
+    "
+
+IMAGE_EFI_BOOT_FILES:append = " ${GRUB_ENV}"
+
 addtask create_data_dir before do_rootfs
 addtask reconfigure_podman after do_rootfs before do_image
+addtask put_grub_env before do_rootfs after create_data_dir 
 
 WKS_FILE = "kpv.wks.in"
