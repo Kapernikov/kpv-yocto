@@ -8,6 +8,8 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 
+MYCOUNTER = "6"
+
 inherit core-image
 
-WKS_FILE = "kpv.wks"
+WKS_FILE = "kpv.wks.in"

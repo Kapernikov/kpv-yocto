@@ -1,6 +1,0 @@
-part /boot --source bootimg-pcbios --size 256 --fstype=vfat --label bootA --align 1024 --active
-part / --source rootfs --size 2500 --fstype=ext4 --label rootfsA
-part /boot --source bootimg-pcbios --size 256 --fstype=vfat --label bootB --align 1024
-part / --source rootfs --size 2500 --fstype=ext4 --label rootfsB
-part /data --size 1024 --fstype=btrfs --label data
-bootloader --ptable gpt --timeout=0  --append="rw oprofile.timer=1 rootfstype=ext4 console=tty console=ttyS0 "
