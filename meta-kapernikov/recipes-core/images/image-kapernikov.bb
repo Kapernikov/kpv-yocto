@@ -12,15 +12,24 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 
-MYCOUNTER = "6"
+MYCOUNTER = "8"
 
 inherit core-image
 
 do_create_data_dir() {
-    mkdir -p "${D}/data"
+    mkdir -p "${IMAGE_ROOTFS}/data"
+}
+
+do_reconfigure_podman() {
+    # reconfigure podman to use the data directory
+    bbnote "Reconfiguring podman to use /data/podman ${MYCOUNTER}"
+    sed -i -e "s|/var/lib/containers|/data/podman/var/lib/containers|g" ${IMAGE_ROOTFS}${sysconfdir}/containers/storage.conf
+    # reconfigure /run/containers too
+    sed -i -e "s|/run/containers|/data/podman/run/containers|g" ${IMAGE_ROOTFS}${sysconfdir}/containers/storage.conf
 }
 
 
 addtask create_data_dir before do_rootfs
+addtask reconfigure_podman after do_rootfs before do_image
 
 WKS_FILE = "kpv.wks.in"

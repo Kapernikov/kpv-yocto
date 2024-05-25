@@ -31,6 +31,8 @@ if mount -n -t {OVERLAYFS_ETC_FSTYPE} \
 then
     mkdir -p $UPPER_DIR
     mkdir -p $WORK_DIR
+    mkdir -p {OVERLAYFS_ETC_MOUNT_POINT}/podman/run/containers
+    mkdir -p {OVERLAYFS_ETC_MOUNT_POINT}/podman/var/lib/containers
 
     if {OVERLAYFS_ETC_EXPOSE_LOWER}; then
         mkdir -p $LOWER_DIR
