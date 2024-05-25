@@ -13,7 +13,7 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 
-MYCOUNTER = "10"
+MYCOUNTER = "4"
 
 inherit core-image
 
@@ -35,7 +35,9 @@ GRUB_ENV ?= "${S}/grub.env"
 
 do_before_wic() {
     grub-editenv ${GRUB_ENV} create
-    grub-editenv ${GRUB_ENV} set copy=1
+    grub-editenv ${GRUB_ENV} set rootfs="B"
+    grub-editenv ${GRUB_ENV} set ustate="1"
+
     bbwarn "grub env created in ${GRUB_ENV}"
 }
 
