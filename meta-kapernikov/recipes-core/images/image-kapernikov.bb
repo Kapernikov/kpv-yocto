@@ -12,7 +12,7 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 
-MYCOUNTER = "8"
+MYCOUNTER = "9"
 
 inherit core-image
 

@@ -1,0 +1,15 @@
+rootfs=`cat /proc/cmdline | sed -n 's/.*PARTLABEL=\([a-zA-Z0-9]*\).*/\1/p'`
+
+if [ $rootfs == 'rootfsA' ];then
+	selection="-e stable,copy2"
+else
+	selection="-e stable,copy1"
+fi
+
+if [ -e /media/etc/swupdate.cfg ];then
+	CFGFILE="/media/etc/swupdate.cfg"
+else
+	CFGFILE="/etc/swupdate.cfg"
+fi
+
+SWUPDATE_ARGS="-H @MACHINE@:1.0 ${selection} -p 'reboot' -f ${CFGFILE}"

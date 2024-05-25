@@ -12,6 +12,7 @@ SRC_URI = "\
 # images to build before building swupdate image
 IMAGE_DEPENDS = "image-kapernikov"
 
+MYCOUNTER = "2"
 # images and files that will be included in the .swu image
 SWUPDATE_IMAGES = "image-kapernikov"
 
