@@ -1,6 +1,6 @@
 DESCRIPTION = "SWUpdate image for kapernikov"
 
-LICENSE = "MIT"
+LICENSE = "CLOSED"
 
 inherit swupdate
 
@@ -15,4 +15,4 @@ IMAGE_DEPENDS = "image-kapernikov"
 # images and files that will be included in the .swu image
 SWUPDATE_IMAGES = "image-kapernikov"
 
-SWUPDATE_IMAGES_FSTYPES[core-image-full-cmdline] = ".ext4.gz"
+SWUPDATE_IMAGES_FSTYPES[image-kapernikov] = "-${MACHINE}.rootfs.ext4.gz"

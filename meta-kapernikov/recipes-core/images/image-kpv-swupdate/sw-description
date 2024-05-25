@@ -1,0 +1,28 @@
+software = 
+{
+    version = "0.1.0";
+    kapernikov = {
+        stable : {
+            copy1 : {
+                images: (
+                    {
+                        filename = "image-kapernikov-qemux86-64.rootfs.ext4";
+                        device = "/dev/disk/by-label/rootfsA";
+                        type = "raw";
+                        compressed = "zlib";
+                    }
+                );
+            };
+            copy2 : {
+                images: (
+                    {
+                        filename = "image-kapernikov-qemux86-64.rootfs.ext4";
+                        device = "/dev/disk/by-label/rootfsB";
+                        type = "raw";
+                        compressed = "zlib";
+                    }
+                );
+            };
+        }
+    }
+}

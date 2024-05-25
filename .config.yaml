@@ -3,7 +3,7 @@ header:
 distro: kapernikov
 build_system: oe
 machine: qemux86-64
-target: image-kapernikov
+target: image-kpv-swupdate
 #local_conf_header:
 #  meta-custom: |
 #    BB_ALLOWED_NETWORKS="github.com"
