@@ -33,19 +33,16 @@ do_reconfigure_podman() {
 GRUB_ENV ?= "${S}/grub.env"
 
 
-do_put_grub_env() {
+do_before_wic() {
     grub-editenv ${GRUB_ENV} create
     grub-editenv ${GRUB_ENV} set copy=1
+    bbwarn "grub env created in ${GRUB_ENV}"
 }
 
-FILES_${PN} = " \
-    /boot/EFI/BOOT/grub.env \
-    "
 
-IMAGE_EFI_BOOT_FILES:append = " ${GRUB_ENV}"
+IMAGE_EFI_BOOT_FILES:append = " ${GRUB_ENV};EFI/BOOT/grub.env"
 
 addtask create_data_dir before do_rootfs
 addtask reconfigure_podman after do_rootfs before do_image
-addtask put_grub_env before do_rootfs after create_data_dir 
-
+addtask before_wic before do_image_wic after do_rootfs
 WKS_FILE = "kpv.wks.in"
