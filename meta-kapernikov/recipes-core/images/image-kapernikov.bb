@@ -29,6 +29,24 @@ do_reconfigure_podman() {
     sed -i -e "s|/run/containers|/data/podman/run/containers|g" ${IMAGE_ROOTFS}${sysconfdir}/containers/storage.conf
 }
 
+do_add_resetustate_service() {
+    install -d ${IMAGE_ROOTFS}${systemd_unitdir}/system
+cat << EOF > ${IMAGE_ROOTFS}${systemd_unitdir}/system/resetustate.service
+[Unit]
+Description=Reset ustate to 0 after the system boots
+Wants=network-online.target
+After=multi-user.target network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/grub-editenv /boot/EFI/BOOT/grub.env set ustate=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+}
+
 do_image_wic[depfiles] += "${FILE_DIRNAME}/image-kapernikov/grub.cfg"
 
 GRUB_ENV ?= "${S}/grub.env"
@@ -43,9 +61,11 @@ do_before_wic() {
 }
 
 
+
 IMAGE_EFI_BOOT_FILES:append = " ${GRUB_ENV};EFI/BOOT/grub.env"
 
 addtask create_data_dir before do_rootfs
 addtask reconfigure_podman after do_rootfs before do_image
+addtask add_resetustate_service after do_rootfs before do_image
 addtask before_wic before do_image_wic after do_rootfs
 WKS_FILE = "kpv.wks.in"

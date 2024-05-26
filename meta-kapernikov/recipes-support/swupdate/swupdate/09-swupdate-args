@@ -1,5 +1,10 @@
 rootfs=`cat /proc/cmdline | sed -n 's/.*PARTLABEL=\([a-zA-Z0-9]*\).*/\1/p'`
 
+(
+	echo "enabling ustate reset service"
+	systemctl enable resetustate
+)
+
 if [ $rootfs == 'rootfsA' ];then
 	selection="-e stable,copy2"
 else
