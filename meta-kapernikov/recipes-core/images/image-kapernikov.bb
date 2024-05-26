@@ -13,7 +13,7 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 
-MYCOUNTER = "4"
+MYCOUNTER = "6"
 
 inherit core-image
 
@@ -29,6 +29,7 @@ do_reconfigure_podman() {
     sed -i -e "s|/run/containers|/data/podman/run/containers|g" ${IMAGE_ROOTFS}${sysconfdir}/containers/storage.conf
 }
 
+do_image_wic[depfiles] += "${FILE_DIRNAME}/image-kapernikov/grub.cfg"
 
 GRUB_ENV ?= "${S}/grub.env"
 
@@ -36,7 +37,7 @@ GRUB_ENV ?= "${S}/grub.env"
 do_before_wic() {
     grub-editenv ${GRUB_ENV} create
     grub-editenv ${GRUB_ENV} set rootfs="B"
-    grub-editenv ${GRUB_ENV} set ustate="1"
+    grub-editenv ${GRUB_ENV} set ustate="0"
 
     bbwarn "grub env created in ${GRUB_ENV}"
 }

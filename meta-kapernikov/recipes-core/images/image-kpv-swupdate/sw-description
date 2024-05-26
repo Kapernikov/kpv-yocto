@@ -11,8 +11,14 @@ software =
                     type = "raw";
                     compressed = "zlib";
                     installed-directly = true;
-                    device = "/dev/disk/by-label/rootfsA";
+                    device = "/dev/disk/by-partlabel/rootfsA";
                     sha256 = "$swupdate_get_sha256(image-kapernikov-@@MACHINE@@.rootfs.ext4.gz)";
+                }
+            );
+            bootenv: (
+                {
+                    name = "rootfs";
+                    value = "A";
                 }
             );
         };
@@ -23,8 +29,14 @@ software =
                     type = "raw";
                     compressed = "zlib";
                     installed-directly = true;
-                    device = "/dev/disk/by-label/rootfsB";
+                    device = "/dev/disk/by-partlabel/rootfsB";
                     sha256 = "$swupdate_get_sha256(image-kapernikov-@@MACHINE@@.rootfs.ext4.gz)";
+                }
+            );
+            bootenv: (
+                {
+                    name = "rootfs";
+                    value = "B";
                 }
             );
         };
