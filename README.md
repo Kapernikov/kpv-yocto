@@ -48,3 +48,5 @@ This is how it works:
 * I went for podman because i tought that was going to be lightweight. It is not, i think i should switch to containerd.
 
 * Test on real hardware, and remove the 'no security' stuff (now root log in works without password)
+
+* CI build
