@@ -39,12 +39,21 @@ After=multi-user.target network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/grub-editenv /boot/EFI/BOOT/grub.env set ustate=0
+ExecStart=/usr/bin/resetustate
 RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
 EOF
+
+cat << EOF > ${IMAGE_ROOTFS}/usr/bin/resetustate
+#!/bin/sh
+if ! mount | grep boot; then
+		mount /dev/disk/by-partlabel/bootA /boot
+fi
+grub-editenv /boot/EFI/BOOT/grub.env set ustate=0
+EOF
+chmod +x ${IMAGE_ROOTFS}/usr/bin/resetustate
 }
 
 do_image_wic[depfiles] += "${FILE_DIRNAME}/image-kapernikov/grub.cfg"

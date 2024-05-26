@@ -2,7 +2,7 @@
 
 * [x] poky-based distro with apt
 * [x] podman
-* [ ] swupdate
+* [x] swupdate with atomic updates and A/B partition
 
 ## building
 
