@@ -10,6 +10,7 @@ software =
                     filename = "image-kapernikov-@@MACHINE@@.rootfs.ext4.gz";
                     type = "raw";
                     compressed = "zlib";
+                    installed-directly = true;
                     device = "/dev/disk/by-label/rootfsA";
                     sha256 = "$swupdate_get_sha256(image-kapernikov-@@MACHINE@@.rootfs.ext4.gz)";
                 }
@@ -21,6 +22,7 @@ software =
                     filename = "image-kapernikov-@@MACHINE@@.rootfs.ext4.gz";
                     type = "raw";
                     compressed = "zlib";
+                    installed-directly = true;
                     device = "/dev/disk/by-label/rootfsB";
                     sha256 = "$swupdate_get_sha256(image-kapernikov-@@MACHINE@@.rootfs.ext4.gz)";
                 }
