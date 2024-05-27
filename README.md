@@ -59,7 +59,7 @@ This is how it works:
 
 * I really get now why one would want the added complexity of a system like yocto. However, using yocto for general purpose compute is probably not a good idea unless you want to create a CI build with a package feed for updates so you remain secure. The whole yocto flexibility is based on a rather interesting system of variable manipulation, patching and lazy evaluation. It is a good idea to spend some time understanding how this works before diving into recipes, you will understand everything much better if you do this first.
 
-* Getting swupdate to work with grub was quite difficult. I think most users use swupdate with uboot (much easier to find examples using uboot).
+* Getting swupdate to work with grub was quite difficult. I think most users use swupdate with uboot (much easier to find examples using uboot). Swupdate says its more a framework than a software package, and i totally agree with this. Maybe for my purpose i should have gone with something else ? (RAUC? mender?)
 
 * Grub can't do integer arithmetic
 
