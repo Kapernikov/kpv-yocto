@@ -50,3 +50,16 @@ This is how it works:
 * Test on real hardware, and remove the 'no security' stuff (now root log in works without password)
 
 * CI build
+
+## What i learned
+
+* Amazing what yocto can do and how powerful bitbake is, and how flexible the whole yocto build system is: want a readonly rootfs ? check! want deb or rpm based package feed with updates ? check!. Want to know what you have to publish to comply with OSS licenses ? check! Want to build multiple images at once ? check.
+
+* There are a lot of yocto recipes out there. If you need some software, chances are big that there is a recipe out there for the software.
+
+* I really get now why one would want the added complexity of a system like yocto. However, using yocto for general purpose compute is probably not a good idea unless you want to create a CI build with a package feed for updates so you remain secure. The whole yocto flexibility is based on a rather interesting system of variable manipulation, patching and lazy evaluation. It is a good idea to spend some time understanding how this works before diving into recipes, you will understand everything much better if you do this first.
+
+* Getting swupdate to work with grub was quite difficult. I think most users use swupdate with uboot (much easier to find examples using uboot).
+
+* Grub can't do integer arithmetic
+
