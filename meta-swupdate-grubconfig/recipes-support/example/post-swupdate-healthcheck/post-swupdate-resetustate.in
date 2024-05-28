@@ -1,0 +1,9 @@
+#!/bin/sh
+if ! mount | grep boot; then
+		echo "warning: boot partition not mounted. probably your .swu file doesn't contain a correct fstab"
+		mount ${BOOT_PARTITION} /boot
+fi
+
+## check system health here and exit if not healthy
+
+grub-editenv ${BOOTENV_FILE} set ustate=0
