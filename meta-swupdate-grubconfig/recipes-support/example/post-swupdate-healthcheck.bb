@@ -19,11 +19,12 @@ S = "${WORKDIR}"
 
 
 do_install() {
-    install -Dm 0644 ${WORKDIR}/post-swupdate-resetustate.service ${D}/${systemd_unitdir}/system/post-swupdate-resetustate.service
+    install -Dm 0644 ${WORKDIR}/post-swupdate-resetustate.service  ${D}/${systemd_unitdir}/system/post-swupdate-resetustate.service
     install -Dm 0755 ${WORKDIR}/post-swupdate-resetustate ${D}/${bindir}/post-swupdate-resetustate
 }
 
-FILES:${PN} += "${bindir}/post-swupdate-resetustate ${systemd_unitdir}/system/post-swupdate-resetustate.service"
+FILES:${PN} += "${bindir}/post-swupdate-resetustate"
+## FILES:${PN} += ${systemd_unitdir}/system/post-swupdate-resetustate.service"
 
 
 SYSTEMD_SERVICE:${PN} = "post-swupdate-resetustate.service"
