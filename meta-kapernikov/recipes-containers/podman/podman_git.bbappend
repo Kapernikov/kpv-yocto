@@ -8,6 +8,7 @@ do_set_cgroupfs_config () {
     echo "debug: setting cgroupfs config ${KAPERNIKOV_BBAPPEND_DONE}"
 	mkdir -p ${D}/etc/containers
 	touch ${D}/etc/containers/kapernikov_bbappend_done
-    echo "cgroup_manager = \"cgroupfs\"" >> ${D}/etc/containers/libpod.conf
-    echo "runtime = \"/usr/bin/crun\"" >> ${D}/etc/containers/libpod.conf
+    echo "cgroup_manager = \"cgroupfs\"" >> ${D}${sysconfdir}/containers/libpod.conf
+    echo "runtime = \"/usr/bin/crun\"" >> ${D}${sysconfdir}/containers/libpod.conf
 }
+

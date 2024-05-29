@@ -1,0 +1,13 @@
+[Unit]
+Description=Reset ustate to 0 after the system boots
+Wants=network-online.target
+After=multi-user.target network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/post-swupdate-resetustate
+RemainAfterExit=yes
+
+
+[Install]
+WantedBy=multi-user.target
