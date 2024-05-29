@@ -39,11 +39,9 @@ This is how it works:
 
 ## Todos
 
-* Now the `image-kapernikov` recipe is a bit hacky, and i need to extract much of the work (reconfigure-podman, but also the `resetustate` script) to a separate recipe, because now i get in trouble with the order of things.
-
 * A third image that is never updated could run as a `rescue` image. This image could then wait for an update that rescues the system.
 
-* The `resetustate` script could first verify the proper operation of `podman`.
+* The `post-swupdate-healthcheck` package could first verify the proper operation of `podman`.
 
 * I went for podman because i tought that was going to be lightweight. It is not, i think i should switch to containerd.
 

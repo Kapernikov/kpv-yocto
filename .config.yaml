@@ -40,7 +40,5 @@ repos:
     branch: "scarthgap"
     layers:
       ../meta-swupdate:
-  meta-swupdate-grubconfig:
-    path: "./meta-swupdate-grubconfig/"
   meta-kapernikov:
     path: "./meta-kapernikov/"
